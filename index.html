@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoshio Sudewa | IT Professional & Developer</title>
+    <meta name="description" content="Portfolio and CV of Yoshio Sudewa. Software Developer, IT Support, Web & Design Professional.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --text-primary: #e6edf3;
+            --text-secondary: #848d97;
+            --accent-primary: #58a6ff;
+            --accent-secondary: #03e8fc;
+            --card-bg: rgba(22, 27, 34, 0.7);
+            --card-border: rgba(48, 54, 61, 0.5);
+            --glass-blur: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at 10% 20%, rgba(88, 166, 255, 0.05) 0%, transparent 20%),
+                              radial-gradient(circle at 90% 80%, rgba(3, 232, 252, 0.05) 0%, transparent 20%);
+            background-attachment: fixed;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+        }
+
+        a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent-secondary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Glassmorphism Utilities */
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-color: var(--accent-primary);
+        }
+
+        /* Nav */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(13, 17, 23, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            font-weight: 400;
+            font-size: 1rem;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+        }
+        
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links li a:hover::after {
+            width: 100%;
+        }
+
+        /* Header / Hero */
+        header {
+            padding: 150px 0 100px;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        header p.subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: background 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            bottom: -10px;
+            left: 25%;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            border-radius: 2px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: rgba(88, 166, 255, 0.1);
+            color: var(--accent-primary);
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            border: 1px solid rgba(88, 166, 255, 0.3);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .skill-tag:hover {
+            background: var(--accent-primary);
+            color: #000;
+            transform: scale(1.05);
+        }
+
+        /* Timeline (Experience & Education) */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 20px;
+            height: 100%;
+            width: 2px;
+            background: var(--card-border);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 60px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 12px;
+            top: 10px;
+            width: 18px;
+            height: 18px;
+            background: var(--bg-color);
+            border: 3px solid var(--accent-primary);
+            border-radius: 50%;
+            z-index: 1;
+            transition: background 0.3s ease;
+        }
+
+        .timeline-item:hover::before {
+            background: var(--accent-primary);
+        }
+
+        .timeline-content {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 25px;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateX(5px);
+            border-color: var(--accent-secondary);
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--accent-secondary);
+            margin-bottom: 10px;
+            display: block;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .timeline-title {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+
+        .timeline-subtitle {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .timeline-list {
+            list-style: none;
+        }
+
+        .timeline-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        .timeline-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+        }
+
+        /* Portfolio */
+        .portfolio-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .tab-btn {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--card-border);
+            padding: 10px 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--accent-primary);
+            color: #000;
+            border-color: var(--accent-primary);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .design-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .portfolio-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .portfolio-card h3 {
+            color: var(--accent-secondary);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
+        }
+        
+        .portfolio-card p {
+            flex-grow: 1;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .design-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 1 / 1;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+            group: design;
+        }
+
+        .design-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .design-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .design-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .design-card:hover .design-overlay {
+            transform: translateY(0);
+        }
+
+        .design-title {
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.1rem;
+            font-family: 'Outfit', sans-serif;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Additional Info */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid var(--card-border);
+            margin-top: 50px;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            .timeline::before { left: 10px; }
+            .timeline-item { padding-left: 40px; }
+            .timeline-item::before { left: 2px; }
+            .nav-links { display: none; /* Add a hamburger menu in real scenario if needed */ }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container">
+            <div class="logo">YS.</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="about">
+        <div class="container">
+            <h1>YOSHIO SUDEWA</h1>
+            <p class="subtitle">IT Professional | Software Developer | Designer</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i> Magelang City, Central Java
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i> yoshiosudewa28@gmail.com
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i> +62 857-862-555-06
+                </div>
+                <a href="https://github.com/yoshiosdw" target="_blank" class="contact-item">
+                    <i class="fab fa-github"></i> github.com/yoshiosdw
+                </a>
+            </div>
+
+            <div class="glass-card" style="max-width: 800px; margin: 0 auto;">
+                <h3 style="margin-bottom: 15px; color: var(--accent-primary);">Professional Summary</h3>
+                <p style="color: var(--text-secondary); text-align: justify;">
+                    Motivated and technically skilled IT professional with hands-on experience in software development, web technologies, and IT support. Proficient in developing and maintaining business applications using modern frameworks such as Vue.js, Laravel, and PHP. Demonstrates strong analytical skills in system design, project execution, and user support across multiple business units. Highly adaptable, detail-oriented, and committed to delivering reliable and efficient technical solutions.
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <section id="skills" style="background: rgba(0,0,0,0.2);">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-tag">JavaScript</div>
+                <div class="skill-tag">Vue.js</div>
+                <div class="skill-tag">Laravel</div>
+                <div class="skill-tag">PHP</div>
+                <div class="skill-tag">Docker</div>
+                <div class="skill-tag">N8N AI Automation</div>
+                <div class="skill-tag">MySQL</div>
+                <div class="skill-tag">MariaDB</div>
+                <div class="skill-tag">SQL Server</div>
+                <div class="skill-tag">PostgreSQL</div>
+                <div class="skill-tag">Web Design & Dev</div>
+                <div class="skill-tag">IT Support</div>
+                <div class="skill-tag">App Deployment</div>
+                <div class="skill-tag">Creative Design</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="timeline">
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">July 2023 – Present</span>
+                        <h3 class="timeline-title">Lidah Buaya Group</h3>
+                        <p class="timeline-subtitle">IT Professional / Developer</p>
+                        <ul class="timeline-list">
+                            <li>Develop and maintain internal business applications based on predefined mapping and user requirements.</li>
+                            <li>Perform system maintenance and updates to ensure high availability and performance.</li>
+                            <li>Provide application support across multiple business units and coordinate with technical teams for issue resolution.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">2023</span>
+                        <h3 class="timeline-title">PT Solusi Datta Indonesia</h3>
+                        <p class="timeline-subtitle">IT & Social Media</p>
+                        <ul class="timeline-list">
+                            <li>Designed and developed product mockups and digital assets.</li>
+                            <li>Managed company social media accounts to increase engagement and brand awareness.</li>
+                            <li>Provided IT support and troubleshooting assistance for office infrastructure.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">2018 – 2023</span>
+                        <h3 class="timeline-title">PT Sumber Makmur Anugerah</h3>
+                        <p class="timeline-subtitle">Designer</p>
+                        <ul class="timeline-list">
+                            <li>Created innovative new designs that contributed to brand identity and product appeal.</li>
+                            <li>Collaborated with production teams to ensure accuracy and quality in printed designs.</li>
+                            <li>Designed batik patterns and motifs based on client requirements.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="education" style="background: rgba(0,0,0,0.2);">
+        <div class="container">
+            <h2 class="section-title">Education & Information</h2>
+            
+            <div class="timeline" style="margin-bottom: 50px;">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Sept 2020 – Jan 2024</span>
+                        <h3 class="timeline-title">Bachelor’s Degree in Informatics Engineering</h3>
+                        <p class="timeline-subtitle">University of Muhammadiyah Magelang (Completed in 3.5 years)</p>
+                        <ul class="timeline-list">
+                            <li>Graduated with a GPA of 3.56.</li>
+                            <li>Thesis: “Effectiveness of Arduino in Designing Tire Thickness Measuring Tools.”</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-grid">
+                <div class="glass-card">
+                    <h3 style="color: var(--accent-primary); margin-bottom: 10px;"><i class="fas fa-language"></i> Languages</h3>
+                    <p>Indonesian (Native), English</p>
+                </div>
+                <div class="glass-card">
+                    <h3 style="color: var(--accent-primary); margin-bottom: 10px;"><i class="fas fa-certificate"></i> Certifications</h3>
+                    <p>Professional Mastering Vue.js<br>Assistant Lecturer</p>
+                </div>
+                <div class="glass-card">
+                    <h3 style="color: var(--accent-primary); margin-bottom: 10px;"><i class="fas fa-award"></i> Awards & Activities</h3>
+                    <p>Web Programming Assistant Lecturer<br>IoT Assistant Lecturer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="container">
+            <h2 class="section-title">Portfolio</h2>
+            
+            <div class="portfolio-tabs">
+                <button class="tab-btn active" onclick="switchTab('web')">Web Portfolio</button>
+                <button class="tab-btn" onclick="switchTab('design')">Design Portfolio</button>
+            </div>
+
+            <!-- Web Portfolio -->
+            <div id="web-portfolio" class="tab-content active">
+                <div class="portfolio-grid">
+                    <div class="glass-card portfolio-card">
+                        <h3><i class="fas fa-cash-register"></i> Point of Sales (POS)</h3>
+                        <p>A comprehensive Point of Sales application designed to streamline retail operations. Features include real-time inventory tracking, detailed sales reporting, intuitive transaction interfaces, and printable receipt generation to ensure smooth daily store management.</p>
+                    </div>
+                    <div class="glass-card portfolio-card">
+                        <h3><i class="fas fa-user-clock"></i> Absensi (Attendance)</h3>
+                        <p>An integrated attendance tracking system for corporate environments. It includes secure daily check-in/check-out mechanics, leave request workflows, shift management, and a comprehensive real-time dashboard for HR personnel to monitor work hours.</p>
+                    </div>
+                    <div class="glass-card portfolio-card">
+                        <h3><i class="fas fa-route"></i> Tracking System</h3>
+                        <p>A logistics and asset tracking platform built for visibility and efficiency. Features real-time status updates, route monitoring, detailed activity logs, and automated notifications to keep stakeholders informed regarding shipment or asset movements at all times.</p>
+                    </div>
+                    <div class="glass-card portfolio-card">
+                        <h3><i class="fas fa-chart-line"></i> Management Keuangan</h3>
+                        <p>A full-suite financial management tool designed for business accounting. It provides modules for expense and income tracking, automated balance sheet generation, budget forecasting, and structured final reporting to aid in corporate financial decisions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Design Portfolio -->
+            <div id="design-portfolio" class="tab-content">
+                <div class="design-grid">
+                    
+                    <div class="design-card">
+                        <img src="assets/idulfitri_1.png" alt="Hari Raya Idulfitri 2026 Design 1">
+                        <div class="design-overlay">
+                            <span class="design-title">Idulfitri 2026 - Elegant Card</span>
+                        </div>
+                    </div>
+                    <div class="design-card">
+                        <img src="assets/idulfitri_2.png" alt="Hari Raya Idulfitri 2026 Design 2">
+                        <div class="design-overlay">
+                            <span class="design-title">Idulfitri 2026 - Social Media</span>
+                        </div>
+                    </div>
+
+                    <div class="design-card">
+                        <img src="assets/kue_balok_1.png" alt="Kue Balok Design 1">
+                        <div class="design-overlay">
+                            <span class="design-title">Kue Balok - Commercial</span>
+                        </div>
+                    </div>
+                    <div class="design-card">
+                        <img src="assets/kue_balok_2.png" alt="Kue Balok Design 2">
+                        <div class="design-overlay">
+                            <span class="design-title">Kue Balok - Ad Poster</span>
+                        </div>
+                    </div>
+
+                    <div class="design-card">
+                        <img src="assets/pmb_umm_1.png" alt="PMB UMM 2026 Design 1">
+                        <div class="design-overlay">
+                            <span class="design-title">PMB UMM 2026 - Banner</span>
+                        </div>
+                    </div>
+                    <div class="design-card">
+                        <img src="assets/pmb_umm_2.png" alt="PMB UMM 2026 Design 2">
+                        <div class="design-overlay">
+                            <span class="design-title">PMB UMM 2026 - Digital Flyer</span>
+                        </div>
+                    </div>
+
+                    <div class="design-card">
+                        <img src="assets/tahun_baru_1.png" alt="Tahun Baru 2026 Design 1">
+                        <div class="design-overlay">
+                            <span class="design-title">New Year 2026 - Premium</span>
+                        </div>
+                    </div>
+                    <div class="design-card">
+                        <img src="assets/tahun_baru_2.png" alt="Tahun Baru 2026 Design 2">
+                        <div class="design-overlay">
+                            <span class="design-title">New Year 2026 - Modern</span>
+                        </div>
+                    </div>
+
+                    <div class="design-card">
+                        <img src="assets/kue_nastar_1.png" alt="Kue Nastar 2026 Design 1">
+                        <div class="design-overlay">
+                            <span class="design-title">Kue Nastar - Product Prep</span>
+                        </div>
+                    </div>
+                    <div class="design-card">
+                        <img src="assets/kue_nastar_2.png" alt="Kue Nastar 2026 Design 2">
+                        <div class="design-overlay">
+                            <span class="design-title">Kue Nastar - Festive Styling</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Yoshio Sudewa. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function switchTab(tabName) {
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            // Add active class to clicked button based on string passed
+            if (tabName === 'web') {
+                document.querySelectorAll('.tab-btn')[0].classList.add('active');
+                document.getElementById('web-portfolio').classList.add('active');
+            } else {
+                document.querySelectorAll('.tab-btn')[1].classList.add('active');
+                document.getElementById('design-portfolio').classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -489,6 +489,72 @@
             .timeline-item::before { left: 2px; }
             .nav-links { display: none; /* Add a hamburger menu in real scenario if needed */ }
         }
+
+        /* Modal / Lightbox Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(13, 17, 23, 0.95);
+            backdrop-filter: blur(10px);
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            max-width: 90vw;
+            max-height: 90vh;
+            border-radius: 12px;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--card-border);
+            transform: scale(0.9);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 2001;
+        }
+
+        .close-modal:hover {
+            background: var(--accent-primary);
+            color: #000;
+            transform: rotate(90deg);
+        }
+
+        .design-card {
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -653,6 +719,11 @@
             <div id="web-portfolio" class="tab-content active">
                 <div class="portfolio-grid">
                     <div class="glass-card portfolio-card">
+                        <h3><i class="fas fa-chart-line"></i> SAWIT MANAGEMENT</h3>
+                        <p>A comprehensive platform to monitor palm oil production processes, from harvesting activities to real-time analytics dashboards.</p>
+                        <a href="https://rtds-dashboard-new.vercel.app/" target="_blank" class="demo-btn">DEMO <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="glass-card portfolio-card">
                         <h3><i class="fas fa-cash-register"></i> Point of Sales (POS)</h3>
                         <p>A comprehensive Point of Sales application designed to streamline retail operations. Features include real-time inventory tracking, detailed sales reporting, intuitive transaction interfaces, and printable receipt generation to ensure smooth daily store management.</p>
                         <a href="#" class="demo-btn">DEMO <i class="fas fa-arrow-right"></i></a>
@@ -667,75 +738,24 @@
                         <p>A logistics and asset tracking platform built for visibility and efficiency. Features real-time status updates, route monitoring, detailed activity logs, and automated notifications to keep stakeholders informed regarding shipment or asset movements at all times.</p>
                         <a href="#" class="demo-btn">DEMO <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="glass-card portfolio-card">
-                        <h3><i class="fas fa-chart-line"></i> SAWIT MANAGEMENT</h3>
-                        <p>A comprehensive platform to monitor palm oil production processes, from harvesting activities to real-time analytics dashboards.</p>
-                        <a href="https://rtds-dashboard-new.vercel.app/" target="_blank" class="demo-btn">DEMO <i class="fas fa-arrow-right"></i></a>
-                    </div>
+                    
                 </div>
             </div>
 
             <!-- Design Portfolio -->
             <div id="design-portfolio" class="tab-content">
-                <div class="design-grid">
-                    
-                    <div class="design-card">
-                        <img src="assets/idulfitri_1.png" alt="Hari Raya Idulfitri 2026 Design 1">
-                        <div class="design-overlay">
-                            <span class="design-title">Idulfitri 2026 - Elegant Card</span>
-                        </div>
-                    </div>
-                    <div class="design-card">
-                        <img src="assets/idulfitri_2.png" alt="Hari Raya Idulfitri 2026 Design 2">
-                        <div class="design-overlay">
-                            <span class="design-title">Idulfitri 2026 - Social Media</span>
-                        </div>
-                    </div>
-
-                    <div class="design-card">
-                        <img src="assets/kue_balok_1.png" alt="Kue Balok Design 1">
-                        <div class="design-overlay">
-                            <span class="design-title">Kue Balok - Commercial</span>
-                        </div>
-                    </div>
-                    <div class="design-card">
-                        <img src="assets/kue_balok_2.png" alt="Kue Balok Design 2">
-                        <div class="design-overlay">
-                            <span class="design-title">Kue Balok - Ad Poster</span>
-                        </div>
-                    </div>
-
-                    <div class="design-card">
-                        <img src="assets/tahun_baru_1.png" alt="Tahun Baru 2026 Design 1">
-                        <div class="design-overlay">
-                            <span class="design-title">New Year 2026 - Premium</span>
-                        </div>
-                    </div>
-                    <div class="design-card">
-                        <img src="assets/tahun_baru_2.png" alt="Tahun Baru 2026 Design 2">
-                        <div class="design-overlay">
-                            <span class="design-title">New Year 2026 - Modern</span>
-                        </div>
-                    </div>
-
-                    <div class="design-card">
-                        <img src="assets/kue_nastar_1.png" alt="Kue Nastar 2026 Design 1">
-                        <div class="design-overlay">
-                            <span class="design-title">Kue Nastar - Product Prep</span>
-                        </div>
-                    </div>
-                    <div class="design-card">
-                        <img src="assets/kue_nastar_2.png" alt="Kue Nastar 2026 Design 2">
-                        <div class="design-overlay">
-                            <span class="design-title">Kue Nastar - Festive Styling</span>
-                        </div>
-                    </div>
-
+                <div id="design-grid" class="design-grid">
+                    <!-- Dynamic designs will be injected here -->
                 </div>
             </div>
 
         </div>
     </section>
+
+    <div id="image-modal" class="modal" onclick="closeModal(event)">
+        <i class="fas fa-times close-modal" onclick="closeModal(event)"></i>
+        <img id="modal-img" src="" alt="Full Screen View" class="modal-content">
+    </div>
 
     <footer>
         <div class="container">
@@ -744,6 +764,59 @@
     </footer>
 
     <script>
+        // Design Portfolio Data
+        const designWorks = [
+            { image: 'flyer.png', title: 'Corporate Flyer Design' },
+            { image: 'flyer2.png', title: 'Business Marketing Flyer' },
+            { image: 'hampers.png', title: 'Festive Hampers Concept' },
+            { image: 'mug.png', title: 'Custom Branding Mockup' },
+            { image: 'ramadhan.png', title: 'Ramadhan Festive Social Media' },
+            { image: 'reminder.png', title: 'Corporate Reminder Graphic' },
+            { image: 'rokok.png', title: 'Packaging & Product Design' }
+        ];
+
+        function renderDesigns() {
+            const grid = document.getElementById('design-grid');
+            if (!grid) return;
+
+            grid.innerHTML = designWorks.map(work => `
+                <div class="design-card" onclick="openModal('assets/${work.image}')">
+                    <img src="assets/${work.image}" alt="${work.title}" loading="lazy">
+                    <div class="design-overlay">
+                        <span class="design-title">${work.title}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function openModal(src) {
+            const modal = document.getElementById('image-modal');
+            const modalImg = document.getElementById('modal-img');
+            modalImg.src = src;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+
+        function closeModal(event) {
+            // Close if clicking the background or the close button
+            if (event.target.id === 'image-modal' || event.target.classList.contains('close-modal')) {
+                const modal = document.getElementById('image-modal');
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto'; // Re-enable scrolling
+            }
+        }
+
+        // Close on Escape key
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const modal = document.getElementById('image-modal');
+                if (modal.classList.contains('active')) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            }
+        });
+
         function switchTab(tabName) {
             // Remove active class from all buttons
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
@@ -757,8 +830,17 @@
             } else {
                 document.querySelectorAll('.tab-btn')[1].classList.add('active');
                 document.getElementById('design-portfolio').classList.add('active');
+                // Render designs when switching to design tab
+                renderDesigns();
             }
         }
+
+        // Initialize rendering if design tab is active by default (it's not, but good practice)
+        window.addEventListener('DOMContentLoaded', () => {
+            if (document.getElementById('design-portfolio').classList.contains('active')) {
+                renderDesigns();
+            }
+        });
     </script>
 </body>
 </html>
